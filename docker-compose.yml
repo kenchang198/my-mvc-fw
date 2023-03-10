@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  web:
+    image: pointsandlines/php8-dev-starter:latest
+    container_name: mymvc
+    restart: always
+    ports:
+      - 8070:80
+    volumes:
+      - ./:/var/www
+  db:
+    build:
+      context: ./.docker/db
+      dockerfile: Dockerfile
+    image: mysql
+    container_name: db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - ./.docker/db/sqls:/docker-entrypoint-initdb.d

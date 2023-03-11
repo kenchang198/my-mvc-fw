@@ -3,5 +3,8 @@
         "psr-4": {
             "My\\Mvc\\": "./"
         }
+    },
+    "require": {
+        "nikic/fast-route": "^1.3"
     }
 }
